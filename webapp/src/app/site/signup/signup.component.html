@@ -1,0 +1,144 @@
+
+<div class="container-fluid">
+    <div class="row justify-content-center mt-4">
+      <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="list-group">
+          <div class="list-group-item">
+            <form [formGroup]="signupForm">
+              <h2 class="form-row font-weight-normal">
+                <div class="col-sm-12 col-md-3 col-lg-6">
+                  Signup
+                </div>
+              </h2>
+              <div class="row">
+                <div class="form-group col-sm-12 col-lg-6">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" formControlName="username"
+                    placeholder="Enter username" required>
+                  <div class="text-danger" *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched">
+                    username is required
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" formControlName="firstName"
+                    placeholder="Enter First Name" required>
+                  <div class="text-danger" *ngIf="signupForm.get('firstName').invalid && signupForm.get('firstName').touched">
+                    First Name is required
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                    placeholder="Enter Last Name" required>
+                  <div class="text-danger" *ngIf="signupForm.get('lastName').invalid && signupForm.get('lastName').touched">
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password"
+                    placeholder="Enter Password" required>
+                  <div class="text-danger" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+                    Password is required
+                  </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                  <label for="confirmPassword">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" 
+                    placeholder="Enter Confirm Password" required>
+                  <div class="text-danger" *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
+                    Password should match
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                  <button type="submit" class="btn btn-primary add-to-cart border-0"
+                  (click)="onSubmit()" [disabled]="!signupForm.valid">Signup</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- <div class="container-fluid">
+  <div class="row justify-content-center mt-4">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="list-group">
+        <div class="list-group-item">
+          <form (ngSubmit)="onSubmit(submitForm)" #submitForm="ngForm">
+            <h2 class="form-row font-weight-normal">
+              <div class="col-sm-12 col-md-3 col-lg-6">
+                Signup
+              </div>
+            </h2>
+            <div class="row">
+              <div class="form-group col-sm-12 col-lg-6">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" ngModel name="username" #username="ngModel"
+                  placeholder="Enter Username" required>
+                <div class="text-danger" *ngIf="username.touched &&  !username.valid">
+                  Username is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" ngModel name="fisrtName" #firstName="ngModel"
+                  placeholder="Enter First Name" required>
+                <div class="text-danger" *ngIf="firstName.touched &&  !firstName.valid">
+                  First Name is required
+                </div>
+              </div>
+              <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" ngModel name="lastName" #lastName="ngModel"
+                  placeholder="Enter Last Name" required>
+                <div class="text-danger" *ngIf="lastName.touched &&  !lastName.valid">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" ngModel name="password" #password="ngModel"
+                  placeholder="Enter Password" required>
+                <div class="text-danger" *ngIf="password.touched &&  !password.valid">
+                  Password is required
+                </div>
+              </div>
+              <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="text" class="form-control" id="confirmPassword" ngModel name="confirmPassword"
+                  #confirmPassword="ngModel" placeholder="Enter Confirm Password" required pattern="{{password.value}}">
+                <div class="text-danger" *ngIf="confirmPassword.touched &&  !confirmPassword.valid">
+                  Password Should Match
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <button type="submit" class="btn btn-primary buttons border-0"
+                  [disabled]="!submitForm.valid">Signup</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

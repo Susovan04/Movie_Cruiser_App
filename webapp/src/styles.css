@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar {
+    background-color: #800000;
+}
+.material-icons {
+    vertical-align: middle;
+}
+.jumbotron {
+    background-image: url("https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    background-size: 75%;
+    border-radius: 0;
+}
+.buttons {
+    background-color: #800080;
+}
+.container-fluid{
+    margin-bottom: 100px;
+}
+footer {
+    opacity: 0.9;
+}
+.clock {
+    font-size:13px;
+}
+.active-badge {
+    height:20px;
+}

@@ -1,0 +1,59 @@
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-4">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="list-group">
+        <div class="list-group-item">
+          <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+            <h2 class="form-row font-weight-normal">
+              Login
+            </h2>
+            <div class="form-row">
+              <div class="col">
+                <div class="alert alert-info" *ngIf="isMovieIdPresent">
+                  Please login before adding a movie to Favorites.
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <div class="alert alert-danger" *ngIf="!isLoginValid">
+                  Invalid Username/Password
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" ngModel name="username" #username="ngModel"
+                  placeholder="Enter Username" required>
+                <div class="text-danger" *ngIf="username.touched && !username.valid">
+                  Username is required
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" ngModel name="password" #password="ngModel"
+                  placeholder="Enter Password" required>
+                <div class="text-danger" *ngIf="password.touched && !password.valid">
+                  Password is required
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary buttons border-0"
+                  [disabled]="!loginForm.valid">Login</button>
+              </div>
+              <div class="col-8 text-right">
+                <small>New here?<a routerLink="/signup"> Signup</a></small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

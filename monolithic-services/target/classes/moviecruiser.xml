@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+    <bean id="movie1" class="com.cognizant.moviecruiser.model.Movie">
+        <property name="id" value="1" />
+        <property name="title" value="Avatar" />  
+        <property name="boxOffice" value="2787965087" />
+        <property name="active" value="true" />   
+        <property name="dateOfLaunch" value="03/15/2017" /> 
+        <property name="genre" value="Science Fiction" />
+     	<property name="hasTeaser" value="true" />
+     	<property name="imageUrl" value="http://genchi.info/image/avatar-hd-wallpapers-1080p-29.jpg" />
+    </bean>    
+    <bean id="movie2" class="com.cognizant.moviecruiser.model.Movie">
+        <property name="id" value="2" />
+        <property name="title" value="The Avengers" />  
+        <property name="boxOffice" value="1518812988" />
+        <property name="active" value="true" />   
+        <property name="dateOfLaunch" value="12/23/2017" /> 
+        <property name="genre" value="Superhero" />
+     	<property name="hasTeaser" value="false" />
+     	<property name="imageUrl" value="http://genchi.info/img/avengers-hd-wallpaper-10.jpg" />
+    </bean>
+    <bean id="movie3" class="com.cognizant.moviecruiser.model.Movie">
+        <property name="id" value="3" />
+        <property name="title" value="Titanic" />  
+        <property name="boxOffice" value="2187463944" />
+        <property name="active" value="true" />   
+        <property name="dateOfLaunch" value="08/21/2017" /> 
+        <property name="genre" value="Romance" />
+     	<property name="hasTeaser" value="true" />
+     	<property name="imageUrl" value="http://genchi.info/images/titanic-wallpaper-43.jpg" />
+    </bean> 
+    <bean id="movie4" class="com.cognizant.moviecruiser.model.Movie">
+        <property name="id" value="4" />
+        <property name="title" value="Jurassic World" />  
+        <property name="boxOffice" value="1671713208" />
+        <property name="active" value="false" />   
+        <property name="dateOfLaunch" value="07/02/2017" /> 
+        <property name="genre" value="Science Fiction" />
+     	<property name="hasTeaser" value="true" />
+     	<property name="imageUrl" value="https://steamuserimages-a.akamaihd.net/ugc/918053309022146367/DE86DED63A5A818CDD79FD6A31CE852FABD98A1B/" />
+    </bean>
+    <bean id="movie5" class="com.cognizant.moviecruiser.model.Movie">
+        <property name="id" value="5" />
+        <property name="title" value="Avengers:End Game" />  
+        <property name="boxOffice" value="2750760348" />
+        <property name="active" value="true" />   
+        <property name="dateOfLaunch" value="02/11/2021" /> 
+        <property name="genre" value="Superhero" />
+     	<property name="hasTeaser" value="true" />
+     	<property name="imageUrl" value="https://s2.dmcdn.net/v/P5eHF1S2sOONoP59X/x1080" />
+    </bean>
+    
+    <bean id="listOfMovie" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="movie1"></ref>
+                <ref bean="movie2"></ref>
+                <ref bean="movie3"></ref>
+                <ref bean="movie4"></ref>
+                <ref bean="movie5"></ref>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+</beans>

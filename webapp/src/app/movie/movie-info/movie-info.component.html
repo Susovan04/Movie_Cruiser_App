@@ -1,0 +1,57 @@
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12 d-flex"> -->
+<div class="card mt-2">
+  <img src={{movie.imageUrl}} class="card-img-top" id="img">
+  <div class="card-body">
+    <h6 class="card-title font-weight-normal">
+      <div class="d-flex ml-1">
+        <b>{{movie.title}}</b>
+        <div class="ml-auto text-danger">
+          {{movie.boxOffice | currency:'USD':'symbol':'1.0-0'}}
+        </div>
+      </div>
+    </h6>
+    <div class="card-text">
+      <div class="row ml-1">
+        <span class="badge badge-success mr-1 active-badge" *ngIf="movie.active && isEditAllowed()">Active</span>
+        <span class="badge badge-danger mr-1 active-badge" *ngIf="!movie.active && isEditAllowed()">Inactive</span>
+        <small class="text-muted">{{movie.genre}}</small>
+        <small class="ml-auto mr-3" *ngIf="movie.hasTeaser">
+          <i class="material-icons">
+            play_circle_filled
+          </i>
+          <span class="badge badge-info">TEASER</span>
+        </small>
+      </div>
+    </div>
+    <div>
+      <div class="row ml-1 alert alert-info mr-1" *ngIf="movieAdded">
+        <small>Movie added to Favorites</small>
+      </div>
+      <div class="row mt-2">
+        <small class="text-muted ml-3" *ngIf="isEditAllowed()">
+          <i class="material-icons clock">
+            access_time
+          </i>
+          Launch
+          <div>{{movie.dateOfLaunch}}</div>
+        </small>
+        <div class="ml-auto mr-3">
+          <a [routerLink]="['/movie-edit', movie.id]" *ngIf="getRole()=='ADMIN'"
+            class="btn btn-primary btn-sm buttons border-0 mt-1" [routerLink]="['/movie-edit', movie.id]">
+            <i class="material-icons ">create</i> Edit
+          </a>
+          <a><button type="button" *ngIf="getRole()!=='ADMIN'" class="btn btn-primary btn-sm add-to-cart border-0"
+              (click)="onAddToFavorites(movie.id)">
+              <i class="material-icons">favorite</i> Add to favorites
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div>
+  </div>
+</div> -->

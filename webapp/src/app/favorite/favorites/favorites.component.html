@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-6 mt-2">
+      <h3 class="font-weight-normal">Favorites</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-6">
+      <div class="alert alert-info" *ngIf="removeFavorite">
+        Favorite deleted successfully
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-6">
+      <!-- <div class="alert alert-danger" *ngIf="favorite.items == null || favorite.items.length === 0"> -->
+      <div class="alert alert-danger" *ngIf="isEmpty">
+        No movies in Favorites.Use'Add to Favorites' option in <a routerLink="/movie">movies
+          list</a>.
+      </div>
+      <ul class="list-group justify-content-center"  *ngIf="error!='Favorite is empty'">
+        <li class="list-group-item" *ngFor="let item of favorite?.favoriteList">
+          <div class="row">
+            <h6 class="text-muted ml-3">
+              {{item.title}}
+            </h6>
+            <small class="ml-auto text-danger mr-3">
+              {{item.boxOffice | currency:'USD': 'symbol':'1.0-0'}}
+            </small>
+          </div>
+          <div class="row">
+            <small class="ml-auto">
+              <button type="button" class="btn btn-default">
+              <a class="material-icons text-muted mr-3" (click)="onRemoveFavorite(item.id)">
+                delete_forever
+              </a>
+              </button>
+            </small>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <h4 class="ml-3 font-weight-normal">
+              No. of Favorites
+            </h4>
+            <h5 class="ml-auto text-danger mr-3">
+              {{favorite?.noOfFavorites}}
+            </h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

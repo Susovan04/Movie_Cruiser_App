@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <h2 class="ml-4 mt-2 font-weight-normal">Edit Movie</h2>
+  <div class="alert alert-info" *ngIf="saved">
+    Movie details saved successfully.
+  </div>
+  <form [formGroup]="editForm" (submit)="onSaveClick(editForm.value)" *ngIf="!saved">
+    <div class="form-row ml-4">
+      <div class="form-group col-sm-12 col-lg-12">
+        <label for="item-name">Movie Name</label>
+        <input type="text" class="form-control" id="item-name" formControlName="title">
+        <div>
+          <small class="text-danger">
+            <div *ngIf="editForm.get('title').touched && editForm.get('title').hasError('required')">Movie Name is
+              required</div>
+            <div *ngIf="editForm.get('title').touched && editForm.get('title').hasError('maxlength')">Movie Name cannot
+              exceed 200 characters</div>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row ml-4">
+      <div class="form-group col-sm-12 col-lg-3">
+        <label for="image">Photo URL</label>
+        <input type="text" class="form-control" id="image" formControlName="imageUrl">
+        <div>
+          <small class="text-danger">
+            <div *ngIf="editForm.get('imageUrl').touched && editForm.get('imageUrl').hasError('required')">Photo URL is
+              required
+            </div>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row ml-4">
+      <div class="form-group col-sm-12 col-lg-3">
+        <label for="price">Box Office</label>
+        <input type="text" class="form-control" id="price" formControlName="boxOffice">
+        <div>
+          <small class="text-danger">
+            <div *ngIf="editForm.get('boxOffice').touched && editForm.get('boxOffice').hasError('required')">Box
+              Office is required</div>
+            <div *ngIf="editForm.get('boxOffice').touched && editForm.get('boxOffice').hasError('pattern')">Box
+              Office can only contain numbers.</div>
+          </small>
+        </div>
+      </div>
+      <div class="form-group col-sm-12 col-lg-3">
+        <label for="dateOfLaunch">Date of Launch</label>
+        <input type="text" class="form-control" id="dateOfLaunch" formControlName="dateOfLaunch">
+        <div>
+          <small class="text-danger">
+            <div *ngIf="editForm.get('dateOfLaunch').touched && editForm.get('dateOfLaunch').hasError('required')">
+              Incorrect date format.</div>
+          </small>
+        </div>
+      </div>
+      <div class="form-group col-sm-12 col-lg-3">
+        <label for="department">Genre</label>
+        <select id="department" class="form-control" formControlName="genre">
+          <option selected></option>
+          <option>Science Fiction</option>
+          <option>Superhero</option>
+          <option>Romance</option>
+          <option>Motivational</option>
+          <option>Biography</option>
+        </select>
+        <div>
+          <small class="text-danger">
+            <div *ngIf="editForm.get('genre').touched && editForm.get('genre').hasError('required')">Select at least one
+              Genre</div>
+          </small>
+        </div>
+      </div>
+      <div class="form-group col-sm-12 col-lg-3">
+        <label>Active</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="active" id="inlineRadio1" [value]="true"
+              formControlName="active">
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="active" id="inlineRadio2" [value]="false"
+              formControlName="active">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+          <div>
+            <small class="text-danger">
+              <div *ngIf="editForm.get('active').hasError('required')">Select availability status</div>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row ml-4">
+      <div class="form-group col-sm-12 col-lg-3">
+        <div class="form-check">
+          <input class="form-check-input position-static" type="checkbox" id="gridCheck" formControlName="hasTeaser">
+          <label class="form-check-label" for="gridCheck">Has Teaser</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row ml-4">
+      <button type="submit" class="btn btn-primary buttons border-0" [disabled]="!editForm.valid">Save</button>
+    </div>
+  </form>
+</div>
